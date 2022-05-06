@@ -7,8 +7,6 @@ import os
 import argparse
 import getpass
 
-
-
 def generar_llave(password: str, salt: bytes):
     """
     Función para derivar una llave a partir de un password.
@@ -56,7 +54,6 @@ def cifrar(inputPath: str, outPath: str, password: str):
     salida.write(iv) # 12 bytes
     salida.write(salt) # 16 bytes
     salida.write(tag) # 16 bytes         
-
     salida.close()
 
 def obtener_iv_tag_salt(inputPath: str):
@@ -91,7 +88,6 @@ def descifrar(inputPath: str, outPath: str, password: str):
         else:
             plano=decryptor.update(buffer)
         salida.write(plano)
-
     salida.close()
 
     try:
